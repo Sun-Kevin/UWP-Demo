@@ -24,19 +24,18 @@ namespace UWPapp
     {
         public MainPage()
         {
-            this.InitializeComponent();            
+            this.InitializeComponent();
         }
 
-        private void btn_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //audio display
-            //MediaElement mediaElement = new MediaElement();
-            //var synth = new Windows.Media.SpeechSynthesis.SpeechSynthesizer();
-            //Windows.Media.SpeechSynthesis.SpeechSynthesisStream stream = await synth.SynthesizeTextToStreamAsync("Hello, World!");
-            //mediaElement.SetSource(stream, stream.ContentType);
-            //mediaElement.Play();
-
             splitview.IsPaneOpen = !splitview.IsPaneOpen;
+        }
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var i = (ListBoxItem)listbox.SelectedItem;
+            textblock.Text = i.Name;
         }
     }
 }
