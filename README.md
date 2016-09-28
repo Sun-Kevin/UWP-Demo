@@ -6,3 +6,5 @@ Mainly about how to use \<SplitView\> basically.
 And this is the very first try to sync codes between visual studio and github.
 
 Implement a simple Hamburger Menu example, just want to show how to create a hamburger menu functionally. 
+
+There are some useful xaml controls examples, including TimePicker,CalendarDatePicker,CalendarView,Flyout,MenuFlyout,AutoSuggestBox,Slider,ProgressBar,ProgressRing, in the XAMLControlExample folder.
