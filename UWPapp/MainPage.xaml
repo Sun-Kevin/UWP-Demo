@@ -16,7 +16,7 @@
             <Button FontFamily="segoe mdl2 assets" FontSize="36" Content="&#xE700;" HorizontalAlignment="Left"
                     Click="Button_Click"/>
         </RelativePanel>
-        <SplitView Grid.Row="1" DisplayMode="CompactInline" OpenPaneLength="200" 
+        <SplitView Grid.Row="1" DisplayMode="CompactOverlay" OpenPaneLength="200"   
                    CompactPaneLength="56" HorizontalAlignment="Left" Name="splitview">
             <SplitView.Pane>
                 <ListBox Name="listbox" SelectionMode="Single" SelectionChanged="ListBox_SelectionChanged">
@@ -35,8 +35,12 @@
                 </ListBox>
             </SplitView.Pane>
             <SplitView.Content>
-                <TextBlock Name="textblock" FontSize="24"/>
+                <StackPanel Grid.Row="1">
+                    <Frame>
+                        <TextBlock Text="Hello" FontSize="48"/>
+                    </Frame>
+                </StackPanel>
             </SplitView.Content>
-        </SplitView>
+        </SplitView>        
     </Grid>
 </Page>

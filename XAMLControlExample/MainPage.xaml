@@ -1,0 +1,87 @@
+﻿<Page
+    x:Class="XAMLControlExample.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:XAMLControlExample"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="TimePicker" VerticalAlignment="Center"/>
+        <TimePicker Grid.Column="1" ClockIdentifier="24HourClock" Margin="20,0,0,20"/>
+
+        <TextBlock Grid.Row="1" Text="CalendarDatePicker" VerticalAlignment="Center"/>
+        <CalendarDatePicker Grid.Column="1" Grid.Row="1" Margin="20,0,0,20"/>
+
+        <TextBlock Grid.Row="2" Text="CalendarView" VerticalAlignment="Top"/>
+        <StackPanel Grid.Column="1" Grid.Row="2" Margin="20,0,0,20" HorizontalAlignment="Left">
+            <CalendarView Name="calendarview" SelectionMode="Multiple" SelectedDatesChanged="calendarview_SelectedDatesChanged"/>
+            <TextBlock Name="calendarviewresult"/>
+        </StackPanel>
+
+        <TextBlock Grid.Row="3" Text="Flyout" VerticalAlignment="Center"/>
+        <Button Margin="20,0,0,20" Grid.Column="1" Grid.Row="3" Content="Flyout">
+            <Button.Flyout>
+                <Flyout x:Name="flyout" Placement="Full">
+                    <StackPanel Margin="20,20,20,20">
+                        <TextBlock Text="I just flew out to say I love u!" Margin="0,0,0,10"/>
+                        <Button Name="innerflyoutbutton" HorizontalAlignment="Right" Content="OK" Click="innerflyoutbutton_Click"/>
+                    </StackPanel>
+                </Flyout>
+            </Button.Flyout>
+        </Button>
+
+        <TextBlock Grid.Row="4" Text="FlyoutMenu" VerticalAlignment="Center"/>
+        <Button Grid.Row="4" Grid.Column="1" Margin="20,0,0,20" Content="FlyoutMenu">
+            <Button.Flyout>
+                <MenuFlyout Placement="Right">
+                    <MenuFlyoutItem Text="item1"/>
+                    <MenuFlyoutItem Text="item2"/>
+                    <MenuFlyoutSeparator/>
+                    <MenuFlyoutSubItem Text="item3">
+                        <MenuFlyoutItem Text="item4"/>
+                        <MenuFlyoutSubItem Text="item5">
+                            <MenuFlyoutItem Text="item6"/>
+                        </MenuFlyoutSubItem>
+                    </MenuFlyoutSubItem>
+                    <MenuFlyoutSeparator/>
+                    <ToggleMenuFlyoutItem Text="item7"/>
+                </MenuFlyout>
+            </Button.Flyout>
+        </Button>
+
+        <TextBlock Grid.Row="5" Text="AutoSuggestBox" VerticalAlignment="Center"/>
+        <AutoSuggestBox Name="autosuggestbox" Margin="20,0,0,20" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left"
+                        QueryIcon="Find" PlaceholderText="Search" Width="200" TextChanged="autosuggestbox_TextChanged"/>
+
+        <TextBlock Grid.Row="6" Text="Slider" VerticalAlignment="Center"/>
+        <Slider Name="mySlider" Margin="20,0,0,20" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left" 
+                Maximum="100" Minimum="0" Width="200"/>
+
+        <TextBlock Grid.Row="7" Text="ProgressBar" VerticalAlignment="Center"/>
+        <ProgressBar Name="myProgressBar" Margin="20,0,0,20" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Left"
+                     Width="200" Maximum="100" Value="{x:Bind Mode=OneWay, Path=mySlider.Value}" SmallChange="1"/>
+
+        <TextBlock Grid.Row="8" Text="Progress Ring" VerticalAlignment="Center"/>
+        <ProgressRing Margin="20,0,0,20" Grid.Column="1" Grid.Row="8" HorizontalAlignment="Left"
+                      Width="50" Height="50" IsActive="True"/>
+    </Grid>
+</Page>

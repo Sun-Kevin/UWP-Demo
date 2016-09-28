@@ -35,7 +35,7 @@ namespace UWPapp
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var i = (ListBoxItem)listbox.SelectedItem;
-            textblock.Text = i.Name;
+            
         }
     }
 }
