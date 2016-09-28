@@ -1,0 +1,38 @@
+﻿<Page
+    x:Class="XamlStyle.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:XamlStyle"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <!-- these kind of resources can not work with <ResourceDictionary> item，
+             can't figure out why，maybe just the way it is.
+        
+            <SolidColorBrush x:Key="myBrush" Color="Brown"/>
+            <x:String x:Key="greeting">Hello World</x:String>
+            <Style TargetType="Button" x:Key="myButtonStyle">
+                <Setter Property="Background" Value="Gray"/>
+                <Setter Property="FontFamily" Value="arial black"/>
+                <Setter Property="FontSize" Value="18"/>
+            </Style>
+        -->
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Dictionary1.xaml" />                
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <RelativePanel>
+            <TextBlock Name="txt" Text="{StaticResource greeting}" Foreground="{StaticResource brush}"/>
+
+            <Button Name="btn" Content="Style defined within mainpage" Style="{StaticResource myButtonStyle}"
+                    RelativePanel.Below="txt"/>
+            <Button Content="Style defined within app.xaml" Style="{StaticResource myButtonStyle_g}"
+                    RelativePanel.Below="btn"/>
+        </RelativePanel>
+    </Grid>
+</Page>
