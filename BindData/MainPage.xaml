@@ -1,0 +1,32 @@
+﻿<Page
+    x:Class="BindData.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BindData"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data="using:BindData" 
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <DataTemplate x:DataType="data:Book" x:Key="booktemplate">
+            <StackPanel HorizontalAlignment="Center">
+                <TextBlock FontSize="16" Text="{x:Bind Title}" HorizontalAlignment="Center"/>
+                <TextBlock FontSize="16" Text="{x:Bind Author}" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <GridView ItemsSource="{x:Bind Books}" ItemTemplate="{StaticResource booktemplate}"
+                  IsItemClickEnabled="True" ItemClick="GridView_ItemClick">
+        </GridView>
+
+        <TextBlock Grid.Row="1" Name="bookresult" FontSize="24" Foreground="Red" Margin="0,20,0,0"/>
+    </Grid>
+</Page>
