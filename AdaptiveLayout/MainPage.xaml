@@ -1,0 +1,74 @@
+﻿<Page
+    x:Class="AdaptiveLayout.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AdaptiveLayout"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Name="grid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="visualstategroupw">
+                <VisualState x:Name="Phone">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="grid.Background" Value="red"/>
+                        <Setter Target="txt.FontSize" Value="18"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Tablet">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="512" />                        
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="grid.Background" Value="blue"/>
+                        <Setter Target="txt.FontSize" Value="36"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Laptop">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="1024"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="grid.Background" Value="yellow"/>
+                        <Setter Target="txt.FontSize" Value="54"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+            <VisualStateGroup x:Name="visualstategrouph">
+                <VisualState x:Name="Phoneh">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowHeight="0"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="grid.Background" Value="red"/>
+                        <Setter Target="txt.FontSize" Value="18"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Tableht">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowHeight="512" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="grid.Background" Value="blue"/>
+                        <Setter Target="txt.FontSize" Value="36"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Laptoph">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowHeight="768"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="grid.Background" Value="yellow"/>
+                        <Setter Target="txt.FontSize" Value="54"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <TextBlock Name="txt" Foreground="White" Text="Adaptive Layout"/>
+    </Grid>
+</Page>
