@@ -23,7 +23,7 @@
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="data:People">
                     <StackPanel HorizontalAlignment="Center">
-                        <TextBlock Text="{x:Bind Name}" HorizontalAlignment="Center" Margin="20,0,0,0"/>
+                        <TextBlock Text="{x:Bind Name}" Width="50" HorizontalAlignment="Center" Margin="20,0,0,0"/>
                     </StackPanel>
                 </DataTemplate>
             </GridView.ItemTemplate>
